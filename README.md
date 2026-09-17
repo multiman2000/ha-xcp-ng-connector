@@ -89,6 +89,12 @@ integration's **Configure** button.
   run, so very old runs are never a concern but a very large log history
   is not fully retrieved.
 
+## Local testing without a real cluster
+
+`dev/` has a `docker-compose.yml` that runs a real Home Assistant container
+plus a fake Xen Orchestra REST API, so you can try the integration end-to-end
+without touching a real XCP-ng pool. See [`dev/README.md`](dev/README.md).
+
 ## Contributing
 
 Issues and PRs welcome. This was scaffolded for a specific homelab (1 pool,

@@ -1,0 +1,23 @@
+services:
+  mock-xoa:
+    image: python:3.13-slim
+    working_dir: /app
+    volumes:
+      - ./mock_xo_server.py:/app/mock_xo_server.py:ro
+    command: sh -c "pip install --quiet aiohttp && python mock_xo_server.py"
+    ports:
+      - "18765:18765"
+
+  homeassistant:
+    image: homeassistant/home-assistant:stable
+    depends_on:
+      - mock-xoa
+    volumes:
+      - ha-config:/config
+      - ../custom_components/xcpng:/config/custom_components/xcpng:ro
+    ports:
+      - "8123:8123"
+    restart: unless-stopped
+
+volumes:
+  ha-config:
