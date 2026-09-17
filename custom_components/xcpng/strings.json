@@ -1,0 +1,75 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Xen Orchestra",
+        "description": "Enter the address of the Xen Orchestra (XOA) appliance that manages your XCP-ng pool.",
+        "data": {
+          "host": "URL or IP address",
+          "verify_ssl": "Verify SSL certificate",
+          "auth_method": "Authentication method"
+        }
+      },
+      "token": {
+        "title": "API token",
+        "description": "Create a token in Xen Orchestra under Settings > API tokens, or with `xo-cli create-token`.",
+        "data": {
+          "api_token": "API token"
+        }
+      },
+      "password": {
+        "title": "Username & password",
+        "data": {
+          "username": "Username",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Authentication failed. Check the token or username/password.",
+      "cannot_connect": "Could not connect. Check the URL and that Xen Orchestra is reachable.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This pool is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  },
+  "selector": {
+    "auth_method": {
+      "options": {
+        "token": "API token (recommended)",
+        "password": "Username & password"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "pool_vms_running": { "name": "VMs running" },
+      "pool_vms_total": { "name": "VMs total" },
+      "pool_cpu_usage": { "name": "CPU usage" },
+      "pool_memory_usage": { "name": "Memory usage" },
+      "host_cpu_usage": { "name": "CPU usage" },
+      "host_memory_usage": { "name": "Memory usage" },
+      "host_uptime": { "name": "Uptime" },
+      "sr_usage": { "name": "Storage usage" },
+      "vm_memory_usage": { "name": "Memory usage" },
+      "backup_job_status": { "name": "Backup status" }
+    },
+    "binary_sensor": {
+      "pool_ha_enabled": { "name": "High availability" },
+      "host_running": { "name": "Power" },
+      "host_maintenance_mode": { "name": "Maintenance mode" },
+      "vm_running": { "name": "Power" },
+      "backup_job_failed": { "name": "Backup failed" }
+    }
+  }
+}

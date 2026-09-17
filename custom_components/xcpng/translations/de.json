@@ -1,0 +1,75 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mit Xen Orchestra verbinden",
+        "description": "Gib die Adresse der Xen-Orchestra-Appliance (XOA) ein, die deinen XCP-ng-Pool verwaltet.",
+        "data": {
+          "host": "URL oder IP-Adresse",
+          "verify_ssl": "SSL-Zertifikat prüfen",
+          "auth_method": "Authentifizierungsmethode"
+        }
+      },
+      "token": {
+        "title": "API-Token",
+        "description": "Erstelle in Xen Orchestra unter Einstellungen > API-Tokens einen Token, oder nutze `xo-cli create-token`.",
+        "data": {
+          "api_token": "API-Token"
+        }
+      },
+      "password": {
+        "title": "Benutzername & Passwort",
+        "data": {
+          "username": "Benutzername",
+          "password": "Passwort"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Authentifizierung fehlgeschlagen. Prüfe Token bzw. Benutzername/Passwort.",
+      "cannot_connect": "Verbindung fehlgeschlagen. Prüfe die URL und ob Xen Orchestra erreichbar ist.",
+      "unknown": "Unerwarteter Fehler."
+    },
+    "abort": {
+      "already_configured": "Dieser Pool ist bereits eingerichtet."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "scan_interval": "Abfrageintervall (Sekunden)"
+        }
+      }
+    }
+  },
+  "selector": {
+    "auth_method": {
+      "options": {
+        "token": "API-Token (empfohlen)",
+        "password": "Benutzername & Passwort"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "pool_vms_running": { "name": "Laufende VMs" },
+      "pool_vms_total": { "name": "VMs gesamt" },
+      "pool_cpu_usage": { "name": "CPU-Auslastung" },
+      "pool_memory_usage": { "name": "Speicherauslastung" },
+      "host_cpu_usage": { "name": "CPU-Auslastung" },
+      "host_memory_usage": { "name": "Speicherauslastung" },
+      "host_uptime": { "name": "Laufzeit seit" },
+      "sr_usage": { "name": "Speicherplatznutzung" },
+      "vm_memory_usage": { "name": "Speicherauslastung" },
+      "backup_job_status": { "name": "Backup-Status" }
+    },
+    "binary_sensor": {
+      "pool_ha_enabled": { "name": "Hochverfügbarkeit" },
+      "host_running": { "name": "Betrieb" },
+      "host_maintenance_mode": { "name": "Wartungsmodus" },
+      "vm_running": { "name": "Betrieb" },
+      "backup_job_failed": { "name": "Backup fehlgeschlagen" }
+    }
+  }
+}
