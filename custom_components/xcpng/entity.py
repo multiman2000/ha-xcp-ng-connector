@@ -52,9 +52,10 @@ def vm_device_info(vm: dict[str, Any], pool_id: str | None) -> DeviceInfo:
 
 
 def backup_hub_device_info(entry_id: str, host: str) -> DeviceInfo:
+    hostname = host.removeprefix("https://").removeprefix("http://").rstrip("/")
     return DeviceInfo(
         identifiers={(DOMAIN, f"xoa_{entry_id}")},
-        name=f"Xen Orchestra ({host})",
+        name=f"Xen Orchestra ({hostname})",
         manufacturer=MANUFACTURER,
         model="Xen Orchestra Appliance",
     )
